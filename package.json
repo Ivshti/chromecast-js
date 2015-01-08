@@ -1,31 +1,31 @@
 {
-  "name": "chromecast-js",
-  "version": "0.1.4",
-  "description": "Chromecast/Googlecast streaming module all in JS",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/guerrerocarlos/chromecast-js.git"
-  },
-  "keywords": [
-    "chromecast",
-    "googlecast",
-    "stream",
-    "streaming",
-    "torrentv"
-  ],
-  "author": {
-    "name": "Carlos Guerrero",
-    "email": "guerrerocarlos@gmail.com"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/guerrerocarlos/chromecast-js/issues"
-  },
-  "homepage": "https://github.com/guerrerocarlos/chromecast-js",
-  "dependencies": {
-    "castv2-client": "0.0.4",
-    "debug": "^1.0.4",
-    "mdns-js2": "0.0.5"
-  }
+	"name": "chromecast-js",
+	"version": "0.1.6",
+	"homepage": "",
+	"description": "Chromecast/Googlecast streaming module all in JS",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://git.popcorntime.io/stash/scm/mir/chromecast-js.git"
+	},
+	"keywords": [
+		"chromecast",
+		"googlecast",
+		"stream",
+		"streaming",
+		"torrentv"
+	],
+	"author": {
+		"name": "Popcorn Time - ddaf",
+		"email": "ddaf@popcorntime.io"
+	},
+	"license": "ISC",
+	"bugs": {
+		"url": "https://git.popcorntime.io/jira/issues"
+	},
+	"dependencies": {
+		"castv2-client": "0.0.8",
+		"debug": "^1.0.4",
+		"mdns-js": "0.2.7"
+	}
 }
