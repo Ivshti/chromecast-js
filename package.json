@@ -26,6 +26,6 @@
 	"dependencies": {
 		"castv2-client": "0.0.8",
 		"debug": "^1.0.4",
-		"mdns-js": "0.2.7"
+		"mdns-js": "0.2.9"
 	}
 }
