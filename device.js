@@ -1,5 +1,5 @@
-var Client                = require('castv2-client').Client;
-var DefaultMediaReceiver  = require('castv2-client').DefaultMediaReceiver;
+var Client = require('castv2-client').Client;
+var PopcornStyledMediaReceiver = require('./pt-media-receiver');
 
 var events = require('events');
 var util = require('util');
@@ -38,9 +38,9 @@ Device.prototype.play = function(resource, n, callback) {
 		}
 		else {
 			console.log('chromecast-js: Connected, launching player...');
-			self.client.launch(DefaultMediaReceiver, function(err, player) {
+			self.client.launch(PopcornStyledMediaReceiver, function(err, player) {
 				if (err) {
-					console.log('chromecast-js: Error launching DefaultMediaReceiver', err);
+					console.log('chromecast-js: Error launching MediaReceiver', err);
 				} else {
 					self.player = player;
 					self._privatePlayMedia(resource, n, callback);
@@ -198,13 +198,18 @@ Device.prototype.changeSubtitlesSize = function(fontScale, callback) {
 	});
 };
 
+// Stop player, wait 5 sec at stand-by screen, then close client.
 Device.prototype.stop = function(callback) {
 	var self = this;
-	self.client.stop(self.player, function() {
+	self.player.stop(function() {
 		console.log('chromecast-js: Player Stopped');
-		self.client.close();
-		self.client = null;
-		console.log('chromecast-js: Disconnected');
-		if (callback) callback();
+		setTimeout(function() {
+			self.client.stop(self.player, function() {
+				self.client.close();
+				self.client = null;
+				console.log('chromecast-js: Disconnected');
+				if (callback) callback();
+			});
+		}, 5000);
 	});
 };
