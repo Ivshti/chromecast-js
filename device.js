@@ -5,6 +5,11 @@ var events = require('events');
 var util = require('util');
 var debug = require('debug')('chromecast-js');
 
+/* Chromecast
+ * Supported Media: https://developers.google.com/cast/docs/media
+ * Receiver Apps: https://developers.google.com/cast/docs/receiver_apps
+ */
+
 var Device = function(options) {
 	events.EventEmitter.call(this);
 	this.config = options;
@@ -171,19 +176,19 @@ Device.prototype.subtitlesOff = function(callback) {
 	});
 };
 
-Device.prototype.changeSubtitles = function(num, callback) {
+Device.prototype.changeSubtitles = function(subIdx, callback) {
 	this.player.media.sessionRequest({
 		type: 'EDIT_TRACKS_INFO',
-		activeTrackIds: [num] // turn off subtitles.
+		activeTrackIds: [subIdx]
 	}, function(err, status){
 		if (err) callback(err);
 		callback(null, status);
 	});
 };
 
-Device.prototype.changeSubtitlesSize = function(num, callback) {
+Device.prototype.changeSubtitlesSize = function(fontScale, callback) {
 	var newStyle = this.subtitles_style;
-	newStyle.fontScale = num;
+	newStyle.fontScale = fontScale;
 	this.player.media.sessionRequest({
 		type: 'EDIT_TRACKS_INFO',
 		textTrackStyle: newStyle
