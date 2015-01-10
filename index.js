@@ -18,7 +18,7 @@ browser.prototype.init = function( options ) {
 
 	this.getDeviceTxtValue = function(device, key, fallback) {
 		var value = fallback !== undefined ? fallback : '';
-		if (device.txt !== undefined) {
+		if (Array.isArray(device.txt)) {
 			for (var i = 0; i < device.txt.length; i++) {
 				var keyValue = device.txt[i].split('=');
 				if (keyValue[0] === key) {
@@ -29,7 +29,7 @@ browser.prototype.init = function( options ) {
 		return value;
 	}
 
-	var discoverTimeout = 12000;
+	var discoverTimeout = 30000;
 	var browser = mdns.createBrowser(mdns.tcp('googlecast'));
 
 	browser.on('ready', function () {
