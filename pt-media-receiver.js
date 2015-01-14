@@ -4,7 +4,7 @@ var DefaultMediaReceiver  = require('castv2-client').DefaultMediaReceiver;
 var PopcornStyledMediaReceiver = function()  {
 	DefaultMediaReceiver.apply(this, arguments);
 };
-PopcornStyledMediaReceiver.APP_ID = '9A435985';
+PopcornStyledMediaReceiver.APP_ID = '887D0748';
 
 util.inherits(PopcornStyledMediaReceiver, DefaultMediaReceiver);
 
