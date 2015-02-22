@@ -61,7 +61,7 @@ browser.prototype.init = function( options ) {
 	});
 
 	setTimeout(function() {
-		console.log('chromecast-js: device discovery stopped');
+		//console.log('chromecast-js: device discovery stopped');
 		browser.stop();
 	}, discoverTimeout);
 };
