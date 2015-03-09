@@ -1,5 +1,5 @@
 var Client = require('castv2-client').Client;
-var PopcornStyledMediaReceiver = require('./pt-media-receiver');
+var PopcornStyledMediaReceiver = require('castv2-client').DefaultMediaReceiver;
 
 var events = require('events');
 var util = require('util');
